@@ -7,6 +7,8 @@
 </head>
 <body>
     Hello World in Week 6
-    new message
+    removed message for home -branch
+    this is new branch message
+
 </body>
 </html>
