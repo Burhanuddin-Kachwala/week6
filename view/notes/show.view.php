@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-900 text-gray-100 p-6">
     
-<h2 class="text-2xl font-bold mb-4">Notes</h2>
+<h2 class="text-2xl font-bold mb-4 text-center"><?=$heading?></h2>
 
 <div class="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
     <ul class="list-none">       

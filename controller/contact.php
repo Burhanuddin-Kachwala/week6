@@ -1,4 +1,4 @@
 <?php 
-$heading = "Contact";
- require(__DIR__.'/../view/contact.view.php');
+views('contact.view.php', ['heading' => 'contact']);
+
  ?>

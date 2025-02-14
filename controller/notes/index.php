@@ -1,6 +1,12 @@
 <?php
-require('Database.php');
+//require base_path('Database.php');
 $db = new Database();
 $results =$db->query("select * from notes")->findOrAbort();
 
-require(__DIR__.'/../../view/notes/index.view.php');
+views(
+    'notes/index.view.php', 
+    [
+        'heading' => 'Notes',
+        'results' => $results
+    ]
+);

@@ -1,4 +1,5 @@
 <?php 
-$heading = "about";
- require(__DIR__.'/../view/about.view.php');
+
+views('about.view.php', ['heading' => 'about']);
+
 ?>

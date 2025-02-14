@@ -1,5 +1,5 @@
 <?php
-require('Database.php');
+//require base_path('../Database.php');
 $db = new Database();
 $results =$db->query('select * from notes where id = :id',['id' => $_GET['id'] ])->findOrAbort(PDO::FETCH_ASSOC);
 
@@ -9,5 +9,12 @@ $currentUserId = 4;
 authorize($results['user_id']==$currentUserId);
 
 
-require(__DIR__.'/../../view/notes/show.view.php');
+views(
+    'notes/show.view.php', 
+    [
+        'heading' => 'Single Note',
+        'results' => $results
+        
+    ]
+);
 ?>

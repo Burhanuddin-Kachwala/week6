@@ -27,18 +27,19 @@
 </head>
 <body class="bg-gray-900 text-gray-100 p-6">
     
-<h2 class="text-2xl font-bold mb-4 text-center">Notes</h2>
-
+<h2 class="text-2xl font-bold mb-4 text-center"><?=$heading?></h2>
+<?php $i=1; ?>
 <div class="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg ">
-    <ul class="list-none overflow-y-auto max-h-96">
+    <ol class=" overflow-y-auto max-h-96" >
         <?php foreach ($results as $row): ?>
             <li class="bg-gray-700 p-4 rounded shadow-md text-lg m-2">
+                <span class="text-blue-500 font-bold"><?=$i++?>.</span>
                 <a href="note?id=<?= $row['id'];?>" class="text-white hover:underline">
                     <?= htmlspecialchars($row['body']); ?>
                 </a>
             </li>
         <?php endforeach; ?>
-    </ul>
+    </ol>
 </div>
 
 <div class="flex justify-center mt-6">

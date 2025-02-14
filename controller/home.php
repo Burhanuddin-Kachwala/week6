@@ -8,5 +8,4 @@
 
 // $db = new Database();
 
-$heading = "Home  Heading";
- require(__DIR__.'/../view/home.view.php');
+views('home.view.php', ['heading' => 'Home']);

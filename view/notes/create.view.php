@@ -7,7 +7,7 @@
 </head>
 <body class="bg-gray-900 text-white">
     <div class="container mx-auto p-4">
-        <h1 class="text-2xl mb-4">Create Note</h1>
+        <h1 class="text-2xl mb-4"><?=$heading?></h1>
         <form  method="POST">
             <div class="mb-4">
                 <label for="notesbody" class="block text-sm font-medium text-gray-300">Notes Body</label>
