@@ -7,5 +7,6 @@
 // echo realpath('/../../Database.php');
 
 // $db = new Database();
+
 $heading = "Home  Heading";
- require(__DIR__.'/view/about.view.php');
+ require(__DIR__.'/../view/home.view.php');

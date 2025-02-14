@@ -1,19 +1,15 @@
 <?php
 require('Response.php');
+require('./partials/head.php');
+$routes = require('./routes.php');
 $url = $_SERVER['PATH_INFO'] ?? "";
-//echo $url . "*";
 
 
-routeToController($url);
 
-function routeToController($url){
-    $routes = [
-        ""=>"controller/home.php",
-        "/contact"=>"controller/contact.php",
-        "/notes"=>"controller/notes.php",
-        "/note"=>"controller/note.php",
-        "/about"=>"controller/about.php"
-    ];
+routeToController($url,$routes);
+
+function routeToController($url,$routes){
+   
    
     if(array_key_exists($url,$routes)){
         return require $routes[$url];
@@ -23,7 +19,7 @@ function routeToController($url){
 
 }
 function abort($statusCode =404){
-    require("./controller/view/{$statusCode}.php");
+    require("./view/{$statusCode}.php");
     die();
 }
 function dd($value){
@@ -31,5 +27,10 @@ function dd($value){
     var_dump($value);
     echo "</pre>";
     die();
+}
+function authorize($condition,$statustCode = Response::HTTP_FORBIDDEN){
+    if(!$condition){
+        abort($statustCode);
+    }
 }
 ?>
