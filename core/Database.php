@@ -1,4 +1,8 @@
 <?php
+
+namespace core;
+use PDO,PDOException;
+
 class Database
 {
     public  $servername = "localhost", $username = "root", $password = "", $dbname = 'bk';

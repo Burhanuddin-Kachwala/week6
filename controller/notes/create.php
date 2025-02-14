@@ -1,4 +1,5 @@
 <?php
+use core\Database;
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //    require base_path('../notes/Database.php');
@@ -10,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (strlen($_POST['notesbody']) > 255) {
         $errors['body'] = 'The notes body must be less than 255 characters';
     }
-    $currentUserId = 3;
+    $currentUserId = 4;
     $db = new Database();
     if (empty($errors)) {
         $db->query('INSERT INTO notes (body,user_id) VALUES (:body,:user_id)', [

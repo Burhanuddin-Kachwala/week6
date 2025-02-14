@@ -1,8 +1,9 @@
 <?php
+use core\Response;
 function routeToController($url,$routes){   
    
     if(array_key_exists($url,$routes)){        
-        require $routes[$url];
+        require base_path($routes[$url]);
     }else{
         abort();
     }

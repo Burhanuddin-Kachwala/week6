@@ -15,6 +15,10 @@
         <li class="bg-gray-700 p-4 rounded shadow-md ">
             <?= htmlspecialchars($results["body"]); ?>            
         </li>
+        <form action="" method="POST" class="mt-4">
+            <input type="hidden" name="note_id" value="<?= htmlspecialchars($results["id"]); ?>">
+            <button type="submit" class="bg-red-500 text-white p-2 rounded">Delete</button>
+        </form>
     </ul>
 </div>
     
