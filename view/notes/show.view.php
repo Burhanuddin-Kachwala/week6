@@ -16,8 +16,10 @@
             <?= htmlspecialchars($results["body"]); ?>            
         </li>
         <form action="" method="POST" class="mt-4">
+            <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="note_id" value="<?= htmlspecialchars($results["id"]); ?>">
             <button type="submit" class="bg-red-500 text-white p-2 rounded">Delete</button>
+            <a href="/note/edit?id=<?= $results['id'] ?>" class="bg-yellow-500 text-white p-2 rounded">Edit</a>
         </form>
     </ul>
 </div>
