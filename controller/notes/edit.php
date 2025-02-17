@@ -11,7 +11,6 @@ authorize($results['user_id'] == $currentUserId);
 views("notes/edit.view.php", [
     'heading' => 'Edit Note',
     'errors' => [],
-    'results' => $results
-    
+    'results' => $results    
 ]);
 ?>
