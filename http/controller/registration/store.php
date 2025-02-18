@@ -1,7 +1,7 @@
 <?php
 use core\App;
 use core\Database;
-use core\Validator;
+use http\Forms\LoginForm;
 $errors = [];
 
 // Use the service container to get instances of Validator and Database
@@ -13,17 +13,22 @@ $data = [
     'password' => $_POST['password']
 ];
 
-// Validate the data
-$errors = [];
+$form = new LoginForm();
 
-if (!Validator::string($data['email'], 1, 255) || !Validator::email($data['email'])) {
-    $errors['email'] = 'Invalid email address.';
+
+if (!$form->validate($data['email'], $data['password'])) {
+
+    $errors = $form->errors();
+    views(
+        'sessions/create.view.php',
+        [
+            'heading' => 'Add New User',
+            'errors' => $form->errors()
+        ]
+    );
+    return;
+    exit();
 }
-
-if (!Validator::string($data['password'], 6)) {
-    $errors['password'] = 'Password must be at least 6 characters long.';
-}
-
 // Check if the email already exists
 $emailExists = $db->query('select * from users where email = :email', [
     'email' => $data['email']
@@ -45,7 +50,7 @@ if (empty($errors)) {
     $_SESSION['user'] = $data['email'];
     header('Location:/');
 
-   // echo "User registered successfully!";
+ 
 } else {
     // Output validation errors
     views(

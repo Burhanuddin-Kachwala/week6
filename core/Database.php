@@ -36,7 +36,7 @@ class Database
     }
     public function find()
     {
-        $result = $this->statement->fetchAll();
+        $result = $this->statement->fetchAll(PDO::FETCH_ASSOC);
         if (count($result) == 1) {
             return $result[0];
         }

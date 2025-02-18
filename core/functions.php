@@ -43,4 +43,9 @@ function logout(){
     setcookie(session_name(), '', time() - 3600, $params['path'], $params['domain']);
    
 }
+function redirect($path){
+    header("location: {$path}");
+    exit();
+
+}
 ?>
