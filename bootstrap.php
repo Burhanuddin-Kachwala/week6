@@ -5,7 +5,7 @@ use core\Database;
 
 $container = new Container();
 $container->bind(Database::class, function(){
-    return new core\Database();
+    return new Database();
 });
 $db = $container->resolve(Database::class);
 App::setContainer($container);

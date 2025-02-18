@@ -32,4 +32,15 @@ function views($path , $data = []){
     extract($data);
     require base_path("view/{$path}");
 }
+function login($user){
+    $_SESSION['user'] = $user;
+    session_regenerate_id(true);
+}
+function logout(){
+    session_unset();
+    session_destroy();
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 3600, $params['path'], $params['domain']);
+   
+}
 ?>

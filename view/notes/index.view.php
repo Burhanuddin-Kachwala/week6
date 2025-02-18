@@ -25,7 +25,10 @@
         }
     </style>
 </head>
+
+
 <body class="bg-gray-900 text-gray-100 p-6">
+<?php require base_path('partials/banner.php') ?>
     
 <h2 class="text-2xl font-bold mb-4 text-center"><?=$heading?></h2>
 <?php $i=1; ?>

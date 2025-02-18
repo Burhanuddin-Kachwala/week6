@@ -28,4 +28,5 @@ if (empty($errors)) {
         'user_id' => $currentUserId
     ]);
     header('Location:/notes');
+    exit();
 }
