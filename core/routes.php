@@ -1,6 +1,4 @@
 <?php
-
-
 $router->get("/","home.php");
 $router->get("/contact","contact.php");
 $router->get("/about","about.php");

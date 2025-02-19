@@ -1,18 +1,21 @@
 <?php
+
 namespace Core;
+
 use core\App;
 use PDO;
 use core\Database;
+
 class Authenticator
 {
     public function attempt($email, $password)
     {
         $user = App::resolve(Database::class)
             ->query('select * from users where email = :email', [
-            'email' => $email
-        ])->find(PDO::FETCH_ASSOC);
+                'email' => $email
+            ])->find(PDO::FETCH_ASSOC);
         if ($user) {
-            
+
             if (password_verify($password, $user['password'])) {
                 $this->login($user['email']);
                 return true;
@@ -27,9 +30,10 @@ class Authenticator
     }
     public function logout()
     {
-        $_SESSION = [];
-        session_destroy();
-        $params = session_get_cookie_params();
-        setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+        Session::destroy();
+    }
+    function old($key, $default = '')
+    {
+        return Session::get('old')[$key] ?? $default;
     }
 }

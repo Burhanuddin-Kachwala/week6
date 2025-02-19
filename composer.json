@@ -1,0 +1,16 @@
+{
+    "name": "burhanuddinkachwala/week6",
+    "authors": [
+        {
+            "name": "Burhanuddin-Kachwala",
+            "email": "burhanuddin.ast@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "core\\": "core/",
+            "http\\": "http/"
+        }
+    }
+}
